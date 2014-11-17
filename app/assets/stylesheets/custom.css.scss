@@ -89,6 +89,10 @@ footer {
     }
   }
 }
+img.pan-douche {
+  border-radius: 8%;
+}
+
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
