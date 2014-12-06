@@ -1,7 +1,16 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
-    <nav>
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-this">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Pan Dulce", root_path, id: "logo" %>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="collapse-this">
       <ul class="nav navbar-nav pull-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
@@ -24,6 +33,7 @@
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
-    </nav>
+    </div>
+    
   </div>
-</header>
+</nav>

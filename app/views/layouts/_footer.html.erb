@@ -1,13 +1,16 @@
 <footer class="footer">
   <small>
-    The <a href="http://bit.ly/1xH9jF7/">Ruby on Rails Tutorial</a>
-    by <a href="http://bit.ly/1xH9jF7/">Don Juan</a>
+    <p class="navbar-text pull-left"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> Pan Dulce 2014</p>
   </small>
   <nav>
     <ul>
       <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://laopinion.com">News</a></li>
+      
+      <li>
+        <%= link_to "https://twitter.com/NdrewGarcia" do %>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact
+        <% end %>
+      </li>
     </ul>
   </nav>
 </footer>
