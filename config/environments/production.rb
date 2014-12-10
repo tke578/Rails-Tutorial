@@ -88,8 +88,10 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
-  config.middleware.use ExceptionNotifier,
-  :email_prefix => "Testing! ",
-  :sender_address => %{"notifier" <notifier@example.com>},
-  :exception_recipients => %w{exceptions@example.com}
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[Whatever] ",
+    :sender_address => %{"notifier" <notifier@example.com>},
+    :exception_recipients => %w{exceptions@example.com}
+  }
 end
