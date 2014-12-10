@@ -60,7 +60,6 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -77,6 +76,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.raise_delivery_errors = true
+  
   config.action_mailer.delivery_method = :smtp
   host = 'pandulce.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
@@ -89,10 +89,21 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+  
   config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[Whatever] ",
     :sender_address => %{"notifier" <notifier@example.com>},
-    :exception_recipients => %w{andrew@sfrent.net}
+    :exception_recipients => %w{andrew@sfrent.net},
+    :delivery_method => :smtp,
+    :smtp_settings => {
+      address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'heroku.com',
+      :enable_starttls_auto => true
+    }
   }
 end
