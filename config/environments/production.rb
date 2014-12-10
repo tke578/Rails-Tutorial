@@ -97,7 +97,7 @@ Rails.application.configure do
     :exception_recipients => %w{andrew@sfrent.net},
     :delivery_method => :smtp,
     :smtp_settings => {
-      address        => 'smtp.sendgrid.net',
+      :address        => 'smtp.sendgrid.net',
       :port           => '587',
       :authentication => :plain,
       :user_name      => ENV['SENDGRID_USERNAME'],
