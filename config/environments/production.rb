@@ -90,20 +90,20 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
   
-  config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[Whatever] ",
-    :sender_address => %{"notifier" <notifier@example.com>},
-    :exception_recipients => %w{andrew@sfrent.net},
-    :delivery_method => :smtp,
-    :smtp_settings => {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
-    }
-  }
+  # config.middleware.use ExceptionNotification::Rack,
+  # :email => {
+  #   :email_prefix => "[Whatever] ",
+  #   :sender_address => %{"notifier" <notifier@example.com>},
+  #   :exception_recipients => %w{andrew@sfrent.net},
+  #   :delivery_method => :smtp,
+  #   :smtp_settings => {
+  #     :address        => 'smtp.sendgrid.net',
+  #     :port           => '587',
+  #     :authentication => :plain,
+  #     :user_name      => ENV['SENDGRID_USERNAME'],
+  #     :password       => ENV['SENDGRID_PASSWORD'],
+  #     :domain         => 'heroku.com',
+  #     :enable_starttls_auto => true
+  #   }
+  # }
 end
